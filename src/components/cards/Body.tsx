@@ -1,6 +1,6 @@
 import React from 'react';
 import FitCards from './FItCards';
-import { ICard } from '../types/card.type';
+import { ICard } from '../../types/card.type';
 
 const getCards = async () => {
     try {

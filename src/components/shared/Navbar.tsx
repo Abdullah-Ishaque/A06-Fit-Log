@@ -12,7 +12,7 @@ const Navbar = () => {
                 </div>
                 <div>
                     <Link href="/workout"><button className='btn btn-active w-auto h-auto bg-[#1A2312] text-[#C2F800] rounded-2xl'>Workouts</button></Link>
-                    <Link href=""><button className='btn btn-active h-auto w-auto bg-transparent'>My Plan</button></Link>
+                    <Link href="/myPlan"><button className='btn btn-active h-auto w-auto bg-transparent'>My Plan</button></Link>
                 </div>
                 <div className='flex gap-8'>
                     <Link href=""><button>Plan</button></Link>

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ICard } from '../types/card.type';
+import { ICard } from '../../types/card.type';
 import { CiClock2, CiStar } from 'react-icons/ci';
 import { PiFireSimpleFill } from 'react-icons/pi';
 import Link from 'next/link';

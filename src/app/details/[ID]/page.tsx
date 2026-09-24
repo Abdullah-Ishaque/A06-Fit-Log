@@ -1,4 +1,6 @@
-import { ICard } from '@/components/types/card.type';
+import SaveForLaterButton from '@/components/bookButton/SaveForLaterButton';
+import TodaysPlanButton from '@/components/bookButton/TodaysPlanButton';
+import { ICard } from '@/types/card.type';
 import Image from 'next/image';
 import React from 'react';
 
@@ -110,13 +112,9 @@ const cardDetails = async ({ params }: ICardDetailsPageProps) => {
         </ol>
 
         <div className="flex gap-3 mt-6">
-          <button className="bg-lime-400 text-black px-5 py-3 rounded-lg font-semibold">
-            {" Add to today's plan"}
-          </button>
+          <TodaysPlanButton card={card}/>
 
-          <button className="border border-gray-600 px-5 py-3 rounded-lg">
-            Save for later
-          </button>
+          <SaveForLaterButton card={card}/>
         </div>
       </div>
     </div>
