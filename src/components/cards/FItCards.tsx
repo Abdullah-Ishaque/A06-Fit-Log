@@ -14,20 +14,23 @@ const FitCards = ({ card }: cardProps) => {
     return (
         <Link href={`/details/${card.id}`}>
             <div>
-                <div className="card bg-base-100 w-[394] h-[368] shadow-sm">
+                <div className="card bg-base-100 w-[394] h-[468] shadow-sm">
                     <figure>
                         <Image
                             src={card.image}
                             alt={card.name}
                             width={392}
-                            height={192}
+                            height={300}
                         />
                     </figure>
                     <div className="card-body">
                         <div className='flex  gap-4'>
                             {
-
+                                card.muscleGroups.map((muscle: string, i: number) => {
+                                    return <h1 key={i} className='w-[60] h-[21] bg-[#C2F800] text-black font-bold rounded-2xl text-center'>muscle</h1>
+                                })
                             }
+
                         </div>
                         <h1 className='font-bold text-2xl'>{card.name}</h1>
                         <h1 className='text-gray-400'>{card.equipment}</h1>
