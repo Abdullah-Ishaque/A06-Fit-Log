@@ -1,0 +1,56 @@
+import Image from 'next/image';
+import { ICard } from '../types/card.type';
+import { CiClock2, CiStar } from 'react-icons/ci';
+import { PiFireSimpleFill } from 'react-icons/pi';
+
+interface cardProps {
+    card: ICard
+}
+
+
+const FitCards = ({ card }: cardProps) => {
+
+    return (
+        <div>
+            <div className="card bg-base-100 w-[394] h-[368] shadow-sm">
+                <figure>
+                    <Image
+                        src={card.image}
+                        alt={card.name}
+                        width={392}
+                        height={192}
+                    />
+                </figure>
+                <div className="card-body">
+                    <div className='flex  gap-4'>
+                        {
+                            
+                        }
+                    </div>
+                    <h1 className='font-bold text-2xl'>{card.name}</h1>
+                    <h1 className='text-gray-400'>{card.equipment}</h1>
+                    <div className="card-actions pt-4">
+                        <hr className='w-90 border-[1] border-gray-600'/>
+                        <div className='flex gap-3 pt-2'>
+                           <div className='flex justify-between items-center gap-1'>
+                             <h1><CiClock2 /></h1>
+                             <h1> {card.duration}</h1>
+                           </div>
+                           <div className='flex justify-between items-center gap-1'>
+                             <h1><PiFireSimpleFill /></h1>
+                             <h1> {card.caloriesBurned}</h1>
+                           </div>
+                           <div className='flex justify-between items-center gap-1'>
+                             <h1><CiStar /></h1>
+                             <h1> {card.rating}</h1>
+                           </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default FitCards;
