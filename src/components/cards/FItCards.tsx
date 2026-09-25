@@ -39,11 +39,11 @@ const FitCards = ({ card }: cardProps) => {
                             <div className='flex pt-2 sm:pl-50 sm:gap-40 lg:pl-0 lg:gap-3 '>
                                 <div className='flex justify-between items-center gap-1'>
                                     <h1><CiClock2 /></h1>
-                                    <h1> {card.duration}</h1>
+                                    <h1> {card.duration} min</h1>
                                 </div>
                                 <div className='flex justify-between items-center gap-1'>
                                     <h1><PiFireSimpleFill /></h1>
-                                    <h1> {card.caloriesBurned}</h1>
+                                    <h1> {card.caloriesBurned} kcal</h1>
                                 </div>
                                 <div className='flex justify-between items-center gap-1'>
                                     <h1><CiStar /></h1>
