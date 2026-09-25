@@ -1,10 +1,14 @@
 'use client';
-
+import { CardContext } from '@/context/CardContext';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 const Navbar = () => {
+
+    const { todayPlan, saveForLater } = useContext(CardContext);
+
+
 
     const [workOutButton, setWorkoutButton] = useState(1);
     const [myPlanButton, setMyPlanButton] = useState(0);
@@ -68,13 +72,13 @@ const Navbar = () => {
                     }
                     {
                         (myPlanButton) ? <Link href="/myPlan">
-                            <button className="btn bg-[#1A2312] text-[#C2F800]" onClick={() => handleMyPlanButton()}>
+                            <button className="btn bg-[#1A2312] text-[#C2F800] cursor-pointer hover:opacity-80" onClick={() => handleMyPlanButton()}>
                                 My Plan
                             </button>
                         </Link>
                             :
                         <Link href="/myPlan">
-                            <button className="btn bg-transparent" onClick={() => handleMyPlanButton()}>
+                            <button className="btn bg-transparent cursor-pointer hover:opacity-80" onClick={() => handleMyPlanButton()}>
                                 My Plan
                             </button>
                         </Link>
@@ -84,8 +88,8 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex gap-4 md:gap-8">
-                    <button>Plan</button>
-                    <button>Saved</button>
+                    <Link href="/myPlan"><button  className='flex items-center gap-2 cursor-pointer hover:opacity-80 '>Plan <span className='w-[20] h-[20] rounded-2xl bg-[#C2F800] text-black text-1xl pb-6'>{todayPlan.length}</span></button></Link>
+                    <Link href="/myPlan"><button className='flex items-center gap-2 cursor-pointer hover:opacity-80 '>Saved <span className='w-[20] h-[20] rounded-2xl text-1xl items-center pb-6'>{saveForLater.length}</span></button></Link>
                 </div>
 
             </div>
@@ -96,7 +100,7 @@ const Navbar = () => {
                         <Link href="/workout">
                             <button
                                 onClick={() => setOpen(false)}
-                                className="w-full text-left px-4 py-3 hover:bg-gray-800 rounded-lg"
+                                className="w-full text-left px-4 py-3 hover:bg-gray-800 rounded-lg cursor-pointer hover:opacity-80"
                             >
                                 Workouts
                             </button>
@@ -105,7 +109,7 @@ const Navbar = () => {
                         <Link href="/myPlan">
                             <button
                                 onClick={() => setOpen(false)}
-                                className="w-full text-left px-4 py-3 hover:bg-gray-800 rounded-lg"
+                                className="w-full text-left px-4 py-3 hover:bg-gray-800 rounded-lg cursor-pointer hover:opacity-80"
                             >
                                 My Plan
                             </button>

@@ -7,7 +7,7 @@ import { Bounce, toast} from "react-toastify";
 
 const SaveForLaterButton = ({ card }: { card: ICard }) => {
 
-    const { saveForLater, setSaveForLater } = useContext(CardContext)
+    const { saveForLater, setSaveForLater } = useContext(CardContext);
 
     const doubleClick = saveForLater.find((one: ICard) => {
         return (String(card.id) === String(one.id)) ? 1 : 0;

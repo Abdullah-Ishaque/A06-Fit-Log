@@ -2,6 +2,7 @@
 import { CardContext } from '@/context/CardContext';
 import { ICard } from '@/types/card.type';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useContext } from 'react';
 import { CiClock2, CiStar } from 'react-icons/ci';
 import { ImCheckmark } from 'react-icons/im';
@@ -52,15 +53,16 @@ const BottomPlanCard = ({ card }: { card: ICard }) => {
             </div>
 
             <div className="flex items-center gap-3">
-                <button className="border border-gray-600 text-white px-5 py-2 rounded-full">
+                <Link href={`/details/${card.id}`}>
+                <button className="border border-gray-600 text-white px-5 py-2 rounded-full hover:opacity-80 cursor-pointer">
                     View Details
                 </button>
-
-                <button className="bg-lime-400 text-black px-5 py-2 rounded-full font-semibold flex justify-between items-center" onClick={() => handleButton()}>
+                </Link>
+                <button className="bg-lime-400 text-black px-5 py-2 rounded-full font-semibold flex justify-between items-center hover:opacity-80 cursor-pointer" onClick={() => handleButton()}>
                     <ImCheckmark /> <h1>Mark as Done</h1>
                 </button>
 
-                <button className="text-gray-500 text-xl" onClick={() => hanndleRemove()}>
+                <button className="text-gray-500 text-xl hover:opacity-80 cursor-pointer" onClick={() => hanndleRemove()}>
                     <RxCross2 />
                 </button>
             </div>
