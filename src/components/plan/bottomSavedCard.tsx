@@ -4,22 +4,22 @@ import { ICard } from '@/types/card.type';
 import Image from 'next/image';
 import React, { useContext } from 'react';
 import { CiClock2, CiStar } from 'react-icons/ci';
-import { ImCheckmark } from 'react-icons/im';
 import { PiFireSimpleFill } from 'react-icons/pi';
 import { RxCross2 } from 'react-icons/rx';
 
-const BottomPlanCard = ({ card }: { card: ICard }) => {
+const BottomSavedCard = ({card} : {card : ICard}) => {
 
-    const { todayPlan, setTodayPlan } = useContext(CardContext);
-
-    const hanndleRemove = () => {
-        const remove = todayPlan.filter((c) => c != card)
-        setTodayPlan([...remove])
-
-    }
+    const { saveForLater , setSaveForLater } = useContext(CardContext)
+    
+        const hanndleRemove = () => {
+            const remove = saveForLater.filter((c) => c != card)
+            setSaveForLater([...remove])
+    
+        }
+    
 
     return (
-        <div className='flex justify-between pb-4'>
+        <div className='flex justify-between pb-4 w-full'>
             <div className="flex items-center gap-4">
                 <Image
                     src={card.image}
@@ -38,7 +38,7 @@ const BottomPlanCard = ({ card }: { card: ICard }) => {
                         {card.equipment}
                     </p>
 
-                    <div className="flex mt-2 text-sm text-gray-300 justify-between gap-8">
+                    <div className="flex gap-4 mt-2 text-sm text-gray-300">
                         <span className='flex items-center'><CiClock2 /> {card.duration} min</span>
                         <span className='flex items-center'><PiFireSimpleFill /> {card.caloriesBurned} kcal</span>
                         <span className='flex items-center'><CiStar /> {card.rating}</span>
@@ -51,10 +51,6 @@ const BottomPlanCard = ({ card }: { card: ICard }) => {
                     View Details
                 </button>
 
-                <button className="bg-lime-400 text-black px-5 py-2 rounded-full font-semibold flex justify-between items-center">
-                    <ImCheckmark /> <h1>Mark as Done</h1>
-                </button>
-
                 <button className="text-gray-500 text-xl" onClick={() => hanndleRemove()}>
                     <RxCross2 />
                 </button>
@@ -63,4 +59,4 @@ const BottomPlanCard = ({ card }: { card: ICard }) => {
     );
 };
 
-export default BottomPlanCard;
+export default BottomSavedCard;
