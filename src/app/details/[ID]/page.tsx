@@ -2,7 +2,6 @@ import SaveForLaterButton from '@/components/bookButton/SaveForLaterButton';
 import TodaysPlanButton from '@/components/bookButton/TodaysPlanButton';
 import { ICard } from '@/types/card.type';
 import Image from 'next/image';
-import React from 'react';
 
 interface ICardDetailsPageProps {
   params: Promise<{

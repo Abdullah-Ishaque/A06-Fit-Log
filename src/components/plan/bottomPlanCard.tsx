@@ -7,15 +7,20 @@ import { CiClock2, CiStar } from 'react-icons/ci';
 import { ImCheckmark } from 'react-icons/im';
 import { PiFireSimpleFill } from 'react-icons/pi';
 import { RxCross2 } from 'react-icons/rx';
+import { toast } from 'react-toastify';
 
 const BottomPlanCard = ({ card }: { card: ICard }) => {
 
     const { todayPlan, setTodayPlan } = useContext(CardContext);
 
     const hanndleRemove = () => {
-        const remove = todayPlan.filter((c) => c != card)
-        setTodayPlan([...remove])
+        const removed = todayPlan.filter((c) => c != card);
+        setTodayPlan([...removed]);
+        toast.warning(`${card.name} removed`);
 
+    }
+    const handleButton = () => {
+        toast.success(`${card.name} marked as done`);
     }
 
     return (
@@ -51,7 +56,7 @@ const BottomPlanCard = ({ card }: { card: ICard }) => {
                     View Details
                 </button>
 
-                <button className="bg-lime-400 text-black px-5 py-2 rounded-full font-semibold flex justify-between items-center">
+                <button className="bg-lime-400 text-black px-5 py-2 rounded-full font-semibold flex justify-between items-center" onClick={() => handleButton()}>
                     <ImCheckmark /> <h1>Mark as Done</h1>
                 </button>
 
